@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Recommendation Result</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="result-page">
+    <div class="background-overlay"></div>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-seedling"></i> Crop Recommendation Result</h1>
+            <p class="subtitle">Your personalized farming insight</p>
+        </header>
+        <div class="result-container">
+            <h2 id="recommended-crop">Recommended Crop: <span id="crop-name">{{ crop }}</span></h2>
+            <div class="result-content">
+                <!-- Dynamically load the predicted crop image -->
+                <img id="crop-image" class="crop-image" src="{{ crop_image }}" alt="{{ crop }}" style="max-width: 400px; max-height: 400px;">
+                <div class="growing-tips">
+                    <h3>How to Grow</h3>
+                    <div id="growing-tips">{{ growing_tips }}</div>
+                </div>
+            </div>
+        </div>
+        <a href="{{ url_for('home') }}" class="back-button"><i class="fas fa-arrow-left"></i> Back to Form</a>
+    </div>
+    <footer>
+        <p>&copy; 2024 Crop Recommendation System. All rights reserved.</p>
+    </footer>
+</body>
+</html>
